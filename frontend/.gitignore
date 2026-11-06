@@ -42,3 +42,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Generated locally from environment variables; may contain the PrimeNG license
+/src/environments/environment.generated.ts

@@ -2,6 +2,31 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.5.
 
+## PrimeNG license configuration
+
+Use Node.js compatible with Angular (Node.js 24 is supported) and npm 11.16.0.
+Install dependencies with `npm ci`, then prepare your local configuration:
+
+```sh
+cp .env.example .env
+```
+
+Set `PRIMENG_LICENSE_KEY` in `.env` to your own PrimeUI license key. In CI, supply
+`PRIMENG_LICENSE_KEY` as an environment variable; it takes precedence over `.env`.
+Do not commit the real key. Both `.env` and `src/environments/environment.generated.ts`
+are ignored by Git. Only `.env.example` with an empty value is versioned.
+
+The npm lifecycle scripts generate the Angular configuration before start, build,
+watch, and test. A missing or empty key stops the command with a configuration error.
+Use `npm start`, `npm run build`, `npm run watch`, and `npm test -- --watch=false`.
+After changing the key, restart the command. If invoking Angular CLI directly, run
+`npm run generate:environment` first.
+
+The license is embedded in the browser bundle because PrimeNG consumes it on the
+client. This setup prevents committing it to Git; it does not make it a server-side
+secret. Never use this mechanism for database passwords or private API credentials.
+See [Angular environment guidance](https://angular.dev/tools/cli/environments).
+
 ## Development server
 
 To start a local development server, run:

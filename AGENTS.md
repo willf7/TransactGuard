@@ -3,7 +3,7 @@
 ## Estrutura do projeto
 
 - `backend/`: API em Java 21 com Spring Boot e Maven. Código em `backend/src/main/`, testes em `backend/src/test/` e configuração de build em `backend/pom.xml`.
-- `frontend/`: aplicação Angular com TypeScript e SCSS. Código em `frontend/src/`, arquivos públicos em `frontend/public/` e scripts em `frontend/package.json`.
+- `frontend/`: aplicação Angular com TypeScript, SCSS e PrimeNG. Código em `frontend/src/`, arquivos públicos em `frontend/public/` e scripts em `frontend/package.json`.
 - `docs/`: documentação geral e decisões técnicas; atualmente vazia.
 - `specs/`: especificações, planos e tarefas por funcionalidade; o diretório será criado ao especificar a primeira funcionalidade.
 - `.specify/`: configuração, scripts, templates e workflows do Spec Kit. O caminho da constituição é `.specify/memory/constitution.md`.
@@ -43,6 +43,8 @@ Use uma versão de Node.js compatível com as dependências do projeto. O `packa
 
 ```sh
 npm ci
+cp .env.example .env
+# Defina PRIMENG_LICENSE_KEY no .env antes dos comandos seguintes.
 npm start
 npm run build
 npm test -- --watch=false
@@ -50,6 +52,9 @@ npm test -- --watch=false
 
 - `ci`: instala dependências respeitando o lockfile; use ao preparar o ambiente ou após mudanças nas dependências.
 - `start`: inicia o servidor de desenvolvimento.
+- Os scripts npm de start/build/watch/test geram `src/environments/environment.generated.ts` a partir de `PRIMENG_LICENSE_KEY` no ambiente ou em `frontend/.env`. A variável do processo tem precedência; a chave não pode estar vazia.
+- `.env` e o arquivo gerado são locais e ignorados pelo Git; versione somente `.env.example` sem a chave. A licença entra no bundle do navegador. Não use esse mecanismo para segredos de backend.
+- `npm run test:environment`: verifica o carregamento da licença com dados fictícios; também é executado antes de `npm test`.
 - `build`: gera o build de produção.
 - `test -- --watch=false`: executa os testes uma vez, sem modo de observação.
 - Não há configuração de testes end-to-end no projeto atualmente.
