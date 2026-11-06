@@ -5,8 +5,9 @@
 - `backend/`: API em Java 21 com Spring Boot e Maven. Código em `backend/src/main/`, testes em `backend/src/test/` e configuração de build em `backend/pom.xml`.
 - `frontend/`: aplicação Angular com TypeScript e SCSS. Código em `frontend/src/`, arquivos públicos em `frontend/public/` e scripts em `frontend/package.json`.
 - `docs/`: documentação geral e decisões técnicas; atualmente vazia.
-- `specs/`: local previsto para especificações de funcionalidades; ainda não existe. Ao inicializar o spec-kit, confirme a estrutura gerada e atualize esta seção.
-- `.specify/`: local previsto para configuração e templates do spec-kit; ainda não existe. A constituição deverá ficar em `.specify/memory/constitution.md`, caso esse seja o caminho adotado na inicialização.
+- `specs/`: especificações, planos e tarefas por funcionalidade; o diretório será criado ao especificar a primeira funcionalidade.
+- `.specify/`: configuração, scripts, templates e workflows do Spec Kit. O caminho da constituição é `.specify/memory/constitution.md`.
+- `.agents/skills/speckit-*/`: skills do fluxo Spec Kit para o Codex.
 
 ## Antes de alterar arquivos
 

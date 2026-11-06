@@ -7,6 +7,9 @@ Web application for managing financial transaction disputes.
 - `backend/`: Java 21 and Spring Boot API with Oracle, JPA, and Flyway.
 - `frontend/`: Angular application with TypeScript and SCSS.
 - `docs/`: technical documentation (created as needed).
+- `specs/`: feature specifications, plans, and tasks (created with the first feature).
+- `.specify/`: Spec Kit configuration, scripts, templates, and workflows.
+- `.agents/skills/speckit-*/`: Spec Kit skills for Codex.
 
 ## Development
 
